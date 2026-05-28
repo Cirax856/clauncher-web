@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CLauncher</title>
+  <meta name="description" content="A minimal, modern game launcher with SteamDB version checking, custom launch configs, and category management." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&family=Sora:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.x/dist/tabler-icons.min.css" />
+  <link rel="stylesheet" type="text/css" href="./style.css" />
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <svg class="nav-logo-icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <rect width="28" height="28" rx="6" fill="#0a0a0c"/>
+      <rect x="0.5" y="0.5" width="27" height="27" rx="5.5" stroke="#1e1e24"/>
+      <path d="M 20 7.5 A 7.5 7.5 0 1 0 20 20.5" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+      <circle cx="20" cy="7.5" r="1.5" fill="#2563eb"/>
+      <circle cx="20" cy="20.5" r="1.5" fill="#2563eb"/>
+    </svg>
+    <span class="nav-logo-text">CLauncher</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#features">features</a></li>
+    <li><a href="#download">download</a></li>
+    <li><a href="#changelog">changelog</a></li>
+  </ul>
+  <a href="#download" class="nav-download">
+    <i class="ti ti-download" style="font-size:14px"></i>
+    download
+  </a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">
+    <span class="hero-badge-dot"></span>
+    v1.0.0 now available
+  </div>
+  <h1 class="hero-title">
+    Your games.<br>
+    <span class="hero-title-dim">Your way.</span>
+  </h1>
+  <p class="hero-sub">
+    A minimal desktop game launcher with SteamDB version checking, custom launch configs, and category management. No bloat.
+  </p>
+  <div class="hero-actions">
+    <a href="#download" class="btn-primary">
+      <i class="ti ti-download" style="font-size:15px"></i>
+      download for windows
+    </a>
+    <a href="#features" class="btn-ghost">
+      see features
+    </a>
+  </div>
+  <p class="hero-meta">free &amp; open source &nbsp;·&nbsp; windows &amp; linux &nbsp;·&nbsp; ~300mb</p>
+</section>
+
+<!-- APP PREVIEW -->
+<div class="preview-wrap reveal">
+  <div class="preview-glow"></div>
+  <div class="preview-frame">
+    <div class="preview-titlebar">
+        <span class="preview-titlebar-text" style="text-align:left;padding-left:4px">CLauncher</span>
+        <div style="display:flex;margin-left:auto">
+            <div
+                style="width:38px;height:38px;display:flex;align-items:center;justify-content:center;color:#4a4a54;font-size:13px">
+                &#8722;</div>
+            <div style="width:38px;height:38px;display:flex;align-items:center;justify-content:center;color:#4a4a54">
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="0.5" y="0.5" width="9" height="9" stroke="#4a4a54" />
+                </svg>
+            </div>
+            <div style="width:38px;height:38px;display:flex;align-items:center;justify-content:center;color:#4a4a54;font-size:13px;transition:background 0.1s"
+                onmouseenter="this.style.background='#c42b1c';this.style.color='#fff'"
+                onmouseleave="this.style.background='';this.style.color='#4a4a54'">&#10005;</div>
+        </div>
+    </div>
+    <div class="preview-body">
+      <div class="preview-sidebar">
+        <div class="preview-cat">Steam Games</div>
+        <div class="preview-item active">
+          <div class="preview-item-icon" style="background:#03060f;border:1px solid #1e3a8a;color:#2563eb">C2</div>
+          <div class="preview-item-info">
+            <div class="preview-item-name">Counter-Strike 2</div>
+            <div class="preview-item-ver preview-item-ver-cs2">23371447</div>
+          </div>
+          <div class="preview-status s-green"></div>
+        </div>
+        <div class="preview-item">
+          <div class="preview-item-icon" style="background:#0f0800;border:1px solid #78350f;color:#f59e0b">C2</div>
+          <div class="preview-item-info">
+            <div class="preview-item-name">Cyberpunk 2077</div>
+            <div class="preview-item-ver">19244079</div>
+          </div>
+          <div class="preview-status s-amber"></div>
+        </div>
+        <div class="preview-cat">Other</div>
+        <div class="preview-item">
+          <div class="preview-item-icon" style="background:#060f08;border:1px solid #065f46;color:#10b981">F</div>
+          <div class="preview-item-info">
+            <div class="preview-item-name">Factorio</div>
+            <div class="preview-item-ver preview-item-ver-factorio">2.0.22</div>
+          </div>
+          <div class="preview-status s-green"></div>
+        </div>
+      </div>
+      <div class="preview-main">
+        <div class="preview-hero-section">
+          <div class="preview-hero-top">
+            <div class="preview-hero-icon">CS</div>
+            <div class="preview-hero-info">
+              <div class="preview-hero-name">Counter-Strike 2</div>
+              <div class="preview-hero-path">C:/Games/cs2/cs2.exe</div>
+              <div class="preview-badges">
+                <span class="preview-badge pb-green"><i class="ti ti-check" style="font-size:8px"></i> up to date</span>
+                <span class="preview-badge pb-blue">app 730</span>
+                <span class="preview-badge pb-muted">custom params</span>
+              </div>
+            </div>
+          </div>
+          <div class="preview-actions">
+            <div class="preview-btn pb-primary"><i class="ti ti-player-play" style="font-size:11px"></i> launch</div>
+            <div class="preview-btn pb-ghost"><i class="ti ti-edit" style="font-size:11px"></i> edit</div>
+            <div class="preview-btn pb-ghost"><i class="ti ti-external-link" style="font-size:11px"></i> steamdb</div>
+            <div class="preview-btn pb-ghost"><i class="ti ti-refresh" style="font-size:11px"></i> check</div>
+          </div>
+        </div>
+        <div class="preview-body-section">
+          <div class="preview-section-label">version info</div>
+          <div class="preview-info-grid">
+            <div class="preview-info-card">
+              <div class="preview-info-label">installed</div>
+              <div class="preview-info-value piv-green">23371447</div>
+            </div>
+            <div class="preview-info-card">
+              <div class="preview-info-label">latest build (steam)</div>
+              <div class="preview-info-value piv-green">23371447</div>
+            </div>
+            <div class="preview-info-card">
+              <div class="preview-info-label">steam app id</div>
+              <div class="preview-info-value piv-blue">730</div>
+            </div>
+            <div class="preview-info-card">
+              <div class="preview-info-label">status</div>
+              <div class="preview-info-value piv-green">up to date</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<section id="features">
+  <div class="section-inner">
+    <div class="features-header reveal">
+      <div class="section-label">features</div>
+      <h2 class="section-title">Everything you'd want.</h2>
+      <p class="section-sub">Built for people who want maximum control over how their games launch, without the overhead of a full platform.</p>
+    </div>
+    <div class="features-grid reveal">
+      <div class="feature-card">
+        <div class="feature-icon"><i class="ti ti-versions" aria-hidden="true"></i></div>
+        <div class="feature-name">SteamDB version checking</div>
+        <div class="feature-desc">Automatically checks your installed build ID against the latest Steam build on startup.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="ti ti-terminal-2" aria-hidden="true"></i></div>
+        <div class="feature-name">Custom launch configs</div>
+        <div class="feature-desc">Create named quick-launch profiles per game for different parameters. One click to switch.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="ti ti-folder" aria-hidden="true"></i></div>
+        <div class="feature-name">Category management</div>
+        <div class="feature-desc">Organize your library into categories. Drag and drop games between them. Collapsible sections keep things clean.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="ti ti-brand-steam" aria-hidden="true"></i></div>
+        <div class="feature-name">Steam protocol launch</div>
+        <div class="feature-desc">Launch via steam://rungameid/ for full workshop mod support, or run the executable directly for DRM-free games.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="ti ti-refresh" aria-hidden="true"></i></div>
+        <div class="feature-name">Auto-updater</div>
+        <div class="feature-desc">Checks for new versions on launch and downloads updates silently in the background. Restart to apply.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon"><i class="ti ti-layout-sidebar" aria-hidden="true"></i></div>
+        <div class="feature-name">Minimal UI</div>
+        <div class="feature-desc">Dark, frameless window with custom titlebar. Searchable sidebar, inline param editing, keyboard-friendly throughout.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOWNLOAD -->
+<section id="download">
+  <div class="download-inner">
+    <div class="reveal">
+      <div class="section-label">download</div>
+      <h2 class="section-title">Get CLauncher</h2>
+      <p class="section-sub" style="margin-bottom:0">Free, no account required. Just download and run.</p>
+      <div class="download-platforms">
+        <a href="./releases/CLauncher%20Setup%201.0.0.exe" class="download-card" id="dl-windows">
+          <div class="download-card-icon"><i class="ti ti-brand-windows" aria-hidden="true"></i></div>
+          <div class="download-card-info">
+            <div class="download-card-name">Windows installer</div>
+            <div class="download-card-meta">CLauncher Setup 1.0.0.exe &nbsp;·&nbsp; NSIS</div>
+          </div>
+          <i class="ti ti-arrow-right download-card-arrow" aria-hidden="true"></i>
+        </a>
+        <a href="./releases/CLauncher-1.0.0.AppImage" class="download-card" id="dl-linux">
+          <div class="download-card-icon"><i class="ti ti-brand-debian" aria-hidden="true"></i></div>
+          <div class="download-card-info">
+            <div class="download-card-name">Linux AppImage</div>
+            <div class="download-card-meta">CLauncher-1.0.0.AppImage &nbsp;·&nbsp; x64</div>
+          </div>
+          <i class="ti ti-arrow-right download-card-arrow" aria-hidden="true"></i>
+        </a>
+        <a href="./releases/CLauncher-1.0.0.dmg" class="download-card" id="dl-mac">
+            <div class="download-card-icon"><i class="ti ti-brand-apple" aria-hidden="true"></i></div>
+            <div class="download-card-info">
+                <div class="download-card-name">macOS disk image</div>
+                <div class="download-card-meta">CLauncher-1.0.0.dmg &nbsp;·&nbsp; univeral</div>
+            </div>
+            <i class="ti ti-arrow-right download-card-arrow" aria-hidden="true"></i>
+        </a>
+      </div>
+      <p class="download-note">
+        unsigned build - windows will show a smartscreen warning.<br>
+        click "more info → run anyway" to proceed.
+      </p>
+    </div>
+    <div class="reveal reveal-delay-2">
+      <div class="download-right">
+        <div class="download-right-label">latest.yml</div>
+        <div class="code-line"><span class="code-line-num">1</span><span><span class="code-line-key">version</span>: <span class="code-line-val">1.0.0</span></span></div>
+        <div class="code-line"><span class="code-line-num">2</span><span><span class="code-line-key">files</span>:</span></div>
+        <div class="code-line"><span class="code-line-num">3</span><span>&nbsp;&nbsp;- <span class="code-line-key">url</span>: <span class="code-line-str">CLauncher Setup 1.0.0.exe</span></span></div>
+        <div class="code-line"><span class="code-line-num">4</span><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-line-key">sha512</span>: <span class="code-line-val">...</span></span></div>
+        <div class="code-line"><span class="code-line-num">5</span><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-line-key">size</span>: <span class="code-line-val">68291482</span></span></div>
+        <div class="code-line"><span class="code-line-num">6</span><span><span class="code-line-key">path</span>: <span class="code-line-str">CLauncher Setup 1.0.0.exe</span></span></div>
+        <div class="code-line"><span class="code-line-num">7</span><span><span class="code-line-key">sha512</span>: <span class="code-line-val">...</span></span></div>
+        <div class="code-line"><span class="code-line-num">8</span><span><span class="code-line-key">releaseDate</span>: <span class="code-line-str">'2026-05-28'</span></span></div>
+        <br>
+        <div class="code-line"><span class="code-line-num"></span><span class="code-line-comment"># hosted at clauncher.cirax.dev/releases/</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHANGELOG -->
+<section id="changelog">
+  <div class="section-inner">
+    <div class="changelog-header reveal">
+      <div class="section-label">changelog</div>
+      <h2 class="section-title">What's new</h2>
+    </div>
+    <div class="changelog-list reveal">
+      <div class="changelog-entry">
+        <div class="changelog-meta">
+          <span class="changelog-version">v1.0.0</span>
+          <span class="changelog-date">2026-05-28</span>
+          <span class="changelog-tag ct-latest">latest</span>
+        </div>
+        <div class="changelog-body">
+          <ul class="changelog-items">
+            <li class="added">Initial release - full game library with persistent storage</li>
+            <li class="added">SteamDB build ID version checking via SteamCMD public API</li>
+            <li class="added">Custom launch parameter profiles per game</li>
+            <li class="added">Category system with drag-and-drop reordering</li>
+            <li class="added">Steam protocol launch (steam://rungameid/) for workshop support</li>
+            <li class="added">Auto-updater via electron-updater</li>
+            <li class="added">Frameless window with native Windows titlebar controls</li>
+            <li class="added">Automatic version check on startup for all games</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-left">
+    <span class="footer-logo-text">CLauncher</span>
+    <span class="footer-sep">·</span>
+    <span class="footer-copy">built by cirax</span>
+  </div>
+  <div class="footer-links">
+    <a href="https://github.com/Cirax856/clauncher">github</a>
+    <a href="#features">features</a>
+    <a href="#download">download</a>
+    <a href="#changelog">changelog</a>
+    <a href="./releases/latest.yml">latest.yml</a>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible')
+        observer.unobserve(e.target)
+      }
+    })
+  }, { threshold: 0.1 })
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el))
+
+  fetch('https://api.steamcmd.net/v1/info/730')
+        .then(r => r.json())
+        .then(data => {
+            const buildId = data?.data?.['730']?.depots?.branches?.public?.buildid
+            if (!buildId) return
+            document.querySelectorAll('.preview-item-ver, .preview-info-value, .preview-item-ver-cs2').forEach((el, i) => {
+                if (i === 0) el.textContent = buildId
+            })
+            document.querySelectorAll('.preview-info-value').forEach(el => {
+                if (el.textContent === '15290816') el.textContent = buildId
+            })
+        })
+        .catch(() => { })
+
+    fetch('https://api.steamcmd.net/v1/info/427520')
+        .then(r => r.json())
+        .then(data => {
+            const buildId = data?.data?.['427520']?.depots?.branches?.public?.buildid
+            if (!buildId) return
+            document.querySelectorAll('.preview-item-ver-factorio').forEach((el, i) => {
+                if (i === 0) el.textContent = buildId
+            })
+            document.querySelectorAll('.preview-info-value').forEach(el => {
+                if (el.textContent === '15290816') el.textContent = buildId
+            })
+        })
+        .catch(() => { })
+
+    // Platform detection
+    const platform = navigator.platform.toLowerCase()
+    const ua = navigator.userAgent.toLowerCase()
+    const isMac = platform.includes('mac') || ua.includes('mac')
+    const isLinux = platform.includes('linux') || ua.includes('linux')
+
+    const primaryBtn = document.querySelector('.btn-primary')
+    const dlWindows = document.getElementById('dl-windows')
+    const dlLinux = document.getElementById('dl-linux')
+    const dlMac = document.getElementById('dl-mac')
+    const dlList = document.querySelector('.download-platforms')
+
+    if (isMac) {
+        primaryBtn.innerHTML = '<i class="ti ti-download" style="font-size:15px"></i> download for mac'
+        primaryBtn.href = '/releases/CLauncher-1.0.0.dmg'
+        dlMac.style.display = 'flex'
+        dlList.prepend(dlMac)
+    } else if (isLinux) {
+        primaryBtn.innerHTML = '<i class="ti ti-download" style="font-size:15px"></i> download for linux'
+        primaryBtn.href = '/releases/CLauncher-1.0.0.AppImage'
+        dlList.prepend(dlLinux)
+    }
+</script>
+</body>
+</html>
