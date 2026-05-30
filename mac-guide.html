@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CLauncher - macOS Guide</title>
+    <meta name="description" content="How to build CLauncher from source on macOS." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&family=Sora:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.x/dist/tabler-icons.min.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./mac-guide.css">
+    <link rel="icon" type="image/x-icon" href="./icon.ico">
+</head>
+
+<body>
+
+    <nav>
+        <a href="/" class="nav-logo">
+            <svg class="nav-logo-icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="28" height="28" rx="6" fill="#0a0a0c" />
+                <rect x="0.5" y="0.5" width="27" height="27" rx="5.5" stroke="#1e1e24" />
+                <path d="M 20 7.5 A 7.5 7.5 0 1 0 20 20.5" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round"
+                    fill="none" />
+                <circle cx="20" cy="7.5" r="1.5" fill="#2563eb" />
+                <circle cx="20" cy="20.5" r="1.5" fill="#2563eb" />
+            </svg>
+            <span class="nav-logo-text">CLauncher</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="/#features">features</a></li>
+            <li><a href="/#download">download</a></li>
+            <li><a href="/#changelog">changelog</a></li>
+        </ul>
+        <a href="/#download" class="nav-download">
+            <i class="ti ti-download" style="font-size:14px"></i>
+            download
+        </a>
+    </nav>
+
+    <div class="guide-wrap">
+        <a href="/" class="guide-back">
+            <i class="ti ti-arrow-left" style="font-size:13px"></i>
+            back to clauncher.cirax.dev
+        </a>
+
+        <div class="guide-label">macOS</div>
+        <h1 class="guide-title">Build from source</h1>
+        <p class="guide-sub">A signed macOS build isn't available, but you can build it from source.</p>
+
+        <div class="guide-steps">
+
+            <div class="guide-step">
+                <div class="guide-step-num">1</div>
+                <div class="guide-step-body">
+                    <div class="guide-step-title">Install Node.js</div>
+                    <div class="guide-step-desc">
+                        Download and install Node.js 18 or later from <a href="https://nodejs.org"
+                            target="_blank">nodejs.org</a>, or use Homebrew:
+                    </div>
+                    <div class="code-block">
+                        <button class="copy-btn" onclick="copyCode(this)">copy</button>
+                        <div class="code-line-block">
+                            <div><span class="comment"># with Homebrew</span></div>
+                            <div><span class="cmd">brew install node</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="guide-step">
+                <div class="guide-step-num">2</div>
+                <div class="guide-step-body">
+                    <div class="guide-step-title">Clone the repository</div>
+                    <div class="guide-step-desc">
+                        Clone from GitHub and enter the project directory.
+                    </div>
+                    <div class="code-block">
+                        <button class="copy-btn" onclick="copyCode(this)">copy</button>
+                        <div class="code-line-block">
+                            <div><span class="cmd">git clone https://github.com/Cirax856/clauncher</span></div>
+                            <div><span class="cmd">cd clauncher</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="guide-step">
+                <div class="guide-step-num">3</div>
+                <div class="guide-step-body">
+                    <div class="guide-step-title">Install dependencies</div>
+                    <div class="guide-step-desc">
+                        Install all required packages. The <code
+                            style="font-family:var(--mono);color:#60a5fa;font-size:12px">--ignore-scripts</code> flag
+                        skips the Electron binary download during install — it gets fetched during build instead.
+                    </div>
+                    <div class="code-block">
+                        <button class="copy-btn" onclick="copyCode(this)">copy</button>
+                        <span class="cmd">npm install --ignore-scripts</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="guide-step">
+                <div class="guide-step-num">4</div>
+                <div class="guide-step-body">
+                    <div class="guide-step-title">Build the app</div>
+                    <div class="guide-step-desc">
+                        This compiles the React frontend and packages everything into a <code
+                            style="font-family:var(--mono);color:#60a5fa;font-size:12px">.dmg</code> installer in the
+                        <code style="font-family:var(--mono);color:#60a5fa;font-size:12px">release/</code> folder.
+                    </div>
+                    <div class="code-block">
+                        <button class="copy-btn" onclick="copyCode(this)">copy</button>
+                        <div class="code-line-block">
+                            <div><span class="cmd">CSC_IDENTITY_AUTO_DISCOVERY<span class="flag">=false</span> npm run
+                                    dist -- --mac</span></div>
+                        </div>
+                    </div>
+                    <div class="warn">
+                        <i class="ti ti-alert-triangle"></i>
+                        The build is unsigned. macOS will show a warning on first open — right-click the app and choose
+                        Open to bypass it.
+                    </div>
+                </div>
+            </div>
+
+            <div class="guide-step">
+                <div class="guide-step-num">5</div>
+                <div class="guide-step-body">
+                    <div class="guide-step-title">Install and run</div>
+                    <div class="guide-step-desc">
+                        Open the <code style="font-family:var(--mono);color:#60a5fa;font-size:12px">release/</code>
+                        folder, double-click the <code
+                            style="font-family:var(--mono);color:#60a5fa;font-size:12px">.dmg</code>, and drag CLauncher
+                        to your Applications folder.
+                    </div>
+                    <div class="code-block">
+                        <button class="copy-btn" onclick="copyCode(this)">copy</button>
+                        <span class="cmd">open release/</span>
+                    </div>
+                    <div class="note">
+                        <i class="ti ti-info-circle"></i>
+                        If macOS blocks the app, go to System Settings → Privacy &amp; Security → scroll down and click
+                        Open Anyway.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="guide-footer">
+            <span class="guide-footer-text">
+                issues? open one on <a href="https://github.com/Cirax856/clauncher/issues"
+                    target="_blank">GitHub</a>
+            </span>
+            <a href="/" class="guide-back" style="margin:0">
+                <i class="ti ti-arrow-left" style="font-size:13px"></i>
+                back to home
+            </a>
+        </div>
+    </div>
+
+    <script>
+        function copyCode(btn) {
+            const block = btn.parentElement
+            const text = block.innerText.replace('copy', '').trim()
+            navigator.clipboard.writeText(text).then(() => {
+                btn.textContent = 'copied!'
+                setTimeout(() => btn.textContent = 'copy', 2000)
+            })
+        }
+    </script>
+</body>
+
+</html>

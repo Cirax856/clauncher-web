@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CLauncher - Linux Guide</title>
+    <meta name="description" content="How to build CLauncher from source on Linux, or run the AppImage." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&family=Sora:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.x/dist/tabler-icons.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="linux-guide.css" />
+</head>
+
+<body>
+
+    <nav>
+        <a href="/" class="nav-logo">
+            <svg class="nav-logo-icon" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="28" height="28" rx="6" fill="#0a0a0c" />
+                <rect x="0.5" y="0.5" width="27" height="27" rx="5.5" stroke="#1e1e24" />
+                <path d="M 20 7.5 A 7.5 7.5 0 1 0 20 20.5" stroke="#2563eb" stroke-width="2.5" stroke-linecap="round"
+                    fill="none" />
+                <circle cx="20" cy="7.5" r="1.5" fill="#2563eb" />
+                <circle cx="20" cy="20.5" r="1.5" fill="#2563eb" />
+            </svg>
+            <span class="nav-logo-text">CLauncher</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="/#features">features</a></li>
+            <li><a href="/#download">download</a></li>
+            <li><a href="/#changelog">changelog</a></li>
+        </ul>
+        <a href="/#download" class="nav-download">
+            <i class="ti ti-download" style="font-size:14px"></i>
+            download
+        </a>
+    </nav>
+
+    <div class="guide-wrap">
+        <a href="/" class="guide-back">
+            <i class="ti ti-arrow-left" style="font-size:13px"></i>
+            back to clauncher.cirax.dev
+        </a>
+
+        <div class="guide-label">Linux</div>
+        <h1 class="guide-title">Download &amp; install</h1>
+        <p class="guide-sub">
+            Run the AppImage directly - no installation needed. Or build from source if you prefer.
+        </p>
+
+        <div class="guide-tabs">
+            <button class="guide-tab active" onclick="switchTab('appimage', this)">AppImage</button>
+            <button class="guide-tab" onclick="switchTab('source', this)">build from source</button>
+        </div>
+
+        <!-- APPIMAGE -->
+        <div class="guide-section active" id="tab-appimage">
+            <div class="guide-steps">
+
+                <div class="guide-step">
+                    <div class="guide-step-num">1</div>
+                    <div class="guide-step-body">
+                        <div class="guide-step-title">Download the AppImage</div>
+                        <div class="guide-step-desc">
+                            Download the latest AppImage from the link below.
+                        </div>
+                        <a href="https://cdn.cirax.dev/clauncher/CLauncher.AppImage"
+                            style="display:inline-flex;align-items:center;gap:8px;padding:10px 18px;background:var(--blue);border-radius:7px;color:#fff;font-size:13px;font-weight:500;text-decoration:none;transition:background 0.15s;margin-bottom:8px"
+                            onmouseover="this.style.background='#1d4ed8'" onmouseout="this.style.background='#2563eb'">
+                            <i class="ti ti-download" style="font-size:14px"></i>
+                            CLauncher.AppImage
+                        </a>
+                    </div>
+                </div>
+
+                <div class="guide-step">
+                    <div class="guide-step-num">2</div>
+                    <div class="guide-step-body">
+                        <div class="guide-step-title">Make it executable</div>
+                        <div class="guide-step-desc">
+                            AppImages need execute permission before they can run.
+                        </div>
+                        <div class="code-block">
+                            <button class="copy-btn" onclick="copyCode(this)">copy</button>
+                            <span class="cmd">chmod +x CLauncher.AppImage</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="guide-step">
+                    <div class="guide-step-num">3</div>
+                    <div class="guide-step-body">
+                        <div class="guide-step-title">Run it</div>
+                        <div class="guide-step-desc">
+                            Double-click in your file manager, or run from terminal:
+                        </div>
+                        <div class="code-block">
+                            <button class="copy-btn" onclick="copyCode(this)">copy</button>
+                            <span class="cmd">./CLauncher.AppImage</span>
+                        </div>
+                        <div class="note">
+                            <i class="ti ti-info-circle"></i>
+                            <div>
+                                On some distros you may need <code>libfuse2</code> installed for AppImages to work:
+                                <div class="code-block" style="margin-top:8px;margin-bottom:6px">
+                                    <button class="copy-btn" onclick="copyCode(this)">copy</button>
+                                    <div class="code-line-block">
+                                        <div><span class="comment"># Arch / Manjaro</span></div>
+                                        <div><span class="cmd">sudo pacman -S fuse2</span></div>
+                                        <div style="margin-top:6px"><span class="comment"># Debian / Ubuntu</span></div>
+                                        <div><span class="cmd">sudo apt install libfuse2</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="guide-step">
+                    <div class="guide-step-num">4</div>
+                    <div class="guide-step-body">
+                        <div class="guide-step-title">Optional - integrate with your desktop</div>
+                        <div class="guide-step-desc">
+                            To add CLauncher to your app launcher and get a desktop icon, use <code>appimaged</code> or
+                            manually place the AppImage somewhere permanent and create a <code>.desktop</code> file.
+                        </div>
+                        <div class="code-block">
+                            <button class="copy-btn" onclick="copyCode(this)">copy</button>
+                            <div class="code-line-block">
+                                <div><span class="comment"># move to a permanent location</span></div>
+                                <div><span class="cmd">mv CLauncher.AppImage
+                                        ~/.local/bin/CLauncher.AppImage</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- BUILD FROM SOURCE -->
+        <div class="guide-section" id="tab-source">
+            <div class="guide-steps">
+
+                <div class="guide-step">
+                    <div class="guide-step-num">1</div>
+                    <div class="guide-step-body">
+                        <div class="guide-step-title">Install Node.js</div>
+                        <div class="guide-step-desc">
+                            Install Node.js 18 or later. Use your distro's package manager or <a
+                                href="https://nodejs.org" target="_blank">nodejs.org</a>.
+                        </div>
+                        <div class="code-block">
+                            <button class="copy-btn" onclick="copyCode(this)">copy</button>
+                            <div class="code-line-block">
+                                <div><span class="comment"># Arch / Manjaro</span></div>
+                                <div><span class="cmd">sudo pacman -S nodejs npm</span></div>
+                                <div style="margin-top:6px"><span class="comment"># Debian / Ubuntu</span></div>
+                                <div><span class="cmd">sudo apt install nodejs npm</span></div>
+                                <div style="margin-top:6px"><span class="comment"># Fedora</span></div>
+                                <div><span class="cmd">sudo dnf install nodejs</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="guide-step">
+                    <div class="guide-step-num">2</div>
+                    <div class="guide-step-body">
+                        <div class="guide-step-title">Clone the repository</div>
+                        <div class="guide-step-desc">Clone from GitHub and enter the project directory.</div>
+                        <div class="code-block">
+                            <button class="copy-btn" onclick="copyCode(this)">copy</button>
+                            <div class="code-line-block">
+                                <div><span class="cmd">git clone https://github.com/Cirax856/clauncher</span></div>
+                                <div><span class="cmd">cd clauncher</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="guide-step">
+                    <div class="guide-step-num">3</div>
+                    <div class="guide-step-body">
+                        <div class="guide-step-title">Install dependencies</div>
+                        <div class="guide-step-desc">Install all required packages.</div>
+                        <div class="code-block">
+                            <button class="copy-btn" onclick="copyCode(this)">copy</button>
+                            <span class="cmd">npm install --ignore-scripts</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="guide-step">
+                    <div class="guide-step-num">4</div>
+                    <div class="guide-step-body">
+                        <div class="guide-step-title">Build the AppImage</div>
+                        <div class="guide-step-desc">
+                            Compiles the frontend and packages everything into an AppImage in the <code>release/</code>
+                            folder.
+                        </div>
+                        <div class="code-block">
+                            <button class="copy-btn" onclick="copyCode(this)">copy</button>
+                            <div class="code-line-block">
+                                <div><span class="cmd">CSC_IDENTITY_AUTO_DISCOVERY<span class="flag">=false</span> npm
+                                        run dist -- --linux</span></div>
+                            </div>
+                        </div>
+                        <div class="note">
+                            <i class="ti ti-info-circle"></i>
+                            <div>
+                                The build requires a few system dependencies. Install them first:
+                                <div class="code-block" style="margin-top:8px;margin-bottom:6px">
+                                    <button class="copy-btn" onclick="copyCode(this)">copy</button>
+                                    <div class="code-line-block">
+                                        <div><span class="comment"># Arch / Manjaro</span></div>
+                                        <div><span class="cmd">sudo pacman -S fuse2 nss nspr</span></div>
+                                        <div style="margin-top:6px"><span class="comment"># Debian / Ubuntu</span></div>
+                                        <div><span class="cmd">sudo apt install libfuse2 libnss3 libnspr4</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="guide-step">
+                    <div class="guide-step-num">5</div>
+                    <div class="guide-step-body">
+                        <div class="guide-step-title">Run it</div>
+                        <div class="guide-step-desc">Make the output executable and run it.</div>
+                        <div class="code-block">
+                            <button class="copy-btn" onclick="copyCode(this)">copy</button>
+                            <div class="code-line-block">
+                                <div><span class="cmd">chmod +x release/CLauncher-*.AppImage</span></div>
+                                <div><span class="cmd">./release/CLauncher-*.AppImage</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="guide-footer">
+            <span class="guide-footer-text">
+                issues? open one at <a href="https://github.com/Cirax856/clauncher/issues"
+                    target="_blank">github.com/Cirax856/clauncher</a>
+            </span>
+            <a href="/" class="guide-back" style="margin:0">
+                <i class="ti ti-arrow-left" style="font-size:13px"></i>
+                back to home
+            </a>
+        </div>
+    </div>
+
+    <script>
+        function switchTab(name, btn) {
+            document.querySelectorAll('.guide-section').forEach(s => s.classList.remove('active'))
+            document.querySelectorAll('.guide-tab').forEach(b => b.classList.remove('active'))
+            document.getElementById('tab-' + name).classList.add('active')
+            btn.classList.add('active')
+        }
+
+        function copyCode(btn) {
+            const block = btn.parentElement
+            const text = block.innerText.replace('copy', '').replace('copied!', '').trim()
+            navigator.clipboard.writeText(text).then(() => {
+                btn.textContent = 'copied!'
+                setTimeout(() => btn.textContent = 'copy', 2000)
+            })
+        }
+
+        if (window.location.hash === '#tab-source' || window.location.hash === '#source') {
+            switchTab('source', document.querySelectorAll('.guide-tab')[1])
+        }
+    </script>
+</body>
+
+</html>
