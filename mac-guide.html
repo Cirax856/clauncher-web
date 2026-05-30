@@ -12,8 +12,8 @@
         href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&family=Sora:wght@300;400;500;600;700&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.x/dist/tabler-icons.min.css" />
-    <link rel="stylesheet" href="./style.css" />
-    <link rel="stylesheet" href="./mac-guide.css">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="linux-guide.css" />
     <link rel="icon" type="image/x-icon" href="./icon.ico">
 </head>
 
@@ -49,114 +49,126 @@
         </a>
 
         <div class="guide-label">macOS</div>
-        <h1 class="guide-title">Build from source</h1>
-        <p class="guide-sub">A signed macOS build isn't available, but you can build it from source.</p>
+        <h1 class="guide-title">Download &amp; install</h1>
+        <p class="guide-sub">
+            A signed macOS build isn't available, but you can build it from source.
+        </p>
 
-        <div class="guide-steps">
+        <div class="guide-tabs">
+            <button class="guide-tab active" onclick="switchTab('curl', this)">curl</button>
+            <button class="guide-tab" onclick="switchTab('interactive', this)">interactive</button>
+        </div>
 
-            <div class="guide-step">
-                <div class="guide-step-num">1</div>
-                <div class="guide-step-body">
-                    <div class="guide-step-title">Install Node.js</div>
-                    <div class="guide-step-desc">
-                        Download and install Node.js 18 or later from <a href="https://nodejs.org"
-                            target="_blank">nodejs.org</a>, or use Homebrew:
-                    </div>
-                    <div class="code-block">
-                        <button class="copy-btn" onclick="copyCode(this)">copy</button>
-                        <div class="code-line-block">
-                            <div><span class="comment"># with Homebrew</span></div>
-                            <div><span class="cmd">brew install node</span></div>
+        <!-- CURL -->
+        <div class="guide-section active" id="tab-curl">
+            <div class="guide-steps">
+
+                <div class="guide-step">
+                    <div class="guide-step-num">1</div>
+                    <div class="guide-step-body">
+                        <div class="guide-step-title">Run the script</div>
+                        <div class="guide-step-desc">
+                            The custom script will automatically install CLauncher on your system. You can check the <code>interactive</code> tab to see what it does.
+                        </div>
+                        <div class="code-block">
+                            <button class="copy-btn" onclick="copyCode(this)">copy</button>
+                            <span class="cmd">curl -fsSL https://cdn.cirax.dev/clauncher/mac-install.sh | bash</span>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <div class="guide-step">
-                <div class="guide-step-num">2</div>
-                <div class="guide-step-body">
-                    <div class="guide-step-title">Clone the repository</div>
-                    <div class="guide-step-desc">
-                        Clone from GitHub and enter the project directory.
-                    </div>
-                    <div class="code-block">
-                        <button class="copy-btn" onclick="copyCode(this)">copy</button>
-                        <div class="code-line-block">
-                            <div><span class="cmd">git clone https://github.com/Cirax856/clauncher</span></div>
-                            <div><span class="cmd">cd clauncher</span></div>
+        <!-- INTERACTIVE -->
+        <div class="guide-section" id="tab-interactive">
+            <div class="guide-steps">
+
+                <div class="guide-step">
+                    <div class="guide-step-num">1</div>
+                    <div class="guide-step-body">
+                        <div class="guide-step-title">Install Node.js</div>
+                        <div class="guide-step-desc">
+                            Install Node.js 18 or later from <a href="https://nodejs.org" target="_blank">nodejs.org</a>, or use Homebrew:
+                        </div>
+                        <div class="code-block">
+                            <button class="copy-btn" onclick="copyCode(this)">copy</button>
+                            <div class="code-line-block">
+                                <div><span class="comment"># with Homebrew</span></div>
+                                <div><span class="cmd">brew install node</span></div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="guide-step">
-                <div class="guide-step-num">3</div>
-                <div class="guide-step-body">
-                    <div class="guide-step-title">Install dependencies</div>
-                    <div class="guide-step-desc">
-                        Install all required packages. The <code
-                            style="font-family:var(--mono);color:#60a5fa;font-size:12px">--ignore-scripts</code> flag
-                        skips the Electron binary download during install — it gets fetched during build instead.
-                    </div>
-                    <div class="code-block">
-                        <button class="copy-btn" onclick="copyCode(this)">copy</button>
-                        <span class="cmd">npm install --ignore-scripts</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="guide-step">
-                <div class="guide-step-num">4</div>
-                <div class="guide-step-body">
-                    <div class="guide-step-title">Build the app</div>
-                    <div class="guide-step-desc">
-                        This compiles the React frontend and packages everything into a <code
-                            style="font-family:var(--mono);color:#60a5fa;font-size:12px">.dmg</code> installer in the
-                        <code style="font-family:var(--mono);color:#60a5fa;font-size:12px">release/</code> folder.
-                    </div>
-                    <div class="code-block">
-                        <button class="copy-btn" onclick="copyCode(this)">copy</button>
-                        <div class="code-line-block">
-                            <div><span class="cmd">CSC_IDENTITY_AUTO_DISCOVERY<span class="flag">=false</span> npm run
-                                    dist -- --mac</span></div>
+                <div class="guide-step">
+                    <div class="guide-step-num">2</div>
+                    <div class="guide-step-body">
+                        <div class="guide-step-title">Clone the repository</div>
+                        <div class="guide-step-desc">Clone from GitHub and enter the project directory.</div>
+                        <div class="code-block">
+                            <button class="copy-btn" onclick="copyCode(this)">copy</button>
+                            <div class="code-line-block">
+                                <div><span class="cmd">git clone https://github.com/Cirax856/clauncher</span></div>
+                                <div><span class="cmd">cd clauncher</span></div>
+                            </div>
                         </div>
                     </div>
-                    <div class="warn">
-                        <i class="ti ti-alert-triangle"></i>
-                        The build is unsigned. macOS will show a warning on first open — right-click the app and choose
-                        Open to bypass it.
+                </div>
+
+                <div class="guide-step">
+                    <div class="guide-step-num">3</div>
+                    <div class="guide-step-body">
+                        <div class="guide-step-title">Install dependencies</div>
+                        <div class="guide-step-desc">Install all required packages. The <code>--ingore-scripts</code> flag skips the Electron binary download during install, it gets fetched during build instead.</div>
+                        <div class="code-block">
+                            <button class="copy-btn" onclick="copyCode(this)">copy</button>
+                            <span class="cmd">npm install --ignore-scripts</span>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="guide-step">
-                <div class="guide-step-num">5</div>
-                <div class="guide-step-body">
-                    <div class="guide-step-title">Install and run</div>
-                    <div class="guide-step-desc">
-                        Open the <code style="font-family:var(--mono);color:#60a5fa;font-size:12px">release/</code>
-                        folder, double-click the <code
-                            style="font-family:var(--mono);color:#60a5fa;font-size:12px">.dmg</code>, and drag CLauncher
-                        to your Applications folder.
-                    </div>
-                    <div class="code-block">
-                        <button class="copy-btn" onclick="copyCode(this)">copy</button>
-                        <span class="cmd">open release/</span>
-                    </div>
-                    <div class="note">
-                        <i class="ti ti-info-circle"></i>
-                        If macOS blocks the app, go to System Settings → Privacy &amp; Security → scroll down and click
-                        Open Anyway.
+                <div class="guide-step">
+                    <div class="guide-step-num">4</div>
+                    <div class="guide-step-body">
+                        <div class="guide-step-title">Build the app</div>
+                        <div class="guide-step-desc">
+                            This compiles the React frontend and packages everything into a <code>.dmg</code> installer in the <code>release/</code> folder.
+                        </div>
+                        <div class="code-block">
+                            <button class="copy-btn" onclick="copyCode(this)">copy</button>
+                            <div class="code-line-block">
+                                <div><span class="cmd">CSC_IDENTITY_AUTO_DISCOVERY<span class="flag">=false</span> npm
+                                        run dist -- --mac</span></div>
+                            </div>
+                        </div>
+                        <div class="warn">
+                            <i class="ti ti-alert-triangle"></i>
+                            The build is unsigned. macOS might show a warning the first time it's opened. Right-click the app and choose Open to bypass it.
+                        </div>
                     </div>
                 </div>
-            </div>
 
+                <div class="guide-step">
+                    <div class="guide-step-num">5</div>
+                    <div class="guide-step-body">
+                        <div class="guide-step-title">Install and run</div>
+                        <div class="guide-step-desc">Open the <code>release/</code> folder, double-click the <code>.dmg</code> file and drag CLauncher to your Applications folder.</div>
+                        <div class="code-block">
+                            <button class="copy-btn" onclick="copyCode(this)">copy</button>
+                            <div class="code-line-block">
+                                <div><span class="cmd">open release/</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
 
         <div class="guide-footer">
             <span class="guide-footer-text">
-                issues? open one on <a href="https://github.com/Cirax856/clauncher/issues"
-                    target="_blank">GitHub</a>
+                issues? open one at <a href="https://github.com/Cirax856/clauncher/issues"
+                    target="_blank">github.com/Cirax856/clauncher</a>
             </span>
             <a href="/" class="guide-back" style="margin:0">
                 <i class="ti ti-arrow-left" style="font-size:13px"></i>
@@ -166,9 +178,16 @@
     </div>
 
     <script>
+        function switchTab(name, btn) {
+            document.querySelectorAll('.guide-section').forEach(s => s.classList.remove('active'))
+            document.querySelectorAll('.guide-tab').forEach(b => b.classList.remove('active'))
+            document.getElementById('tab-' + name).classList.add('active')
+            btn.classList.add('active')
+        }
+
         function copyCode(btn) {
             const block = btn.parentElement
-            const text = block.innerText.replace('copy', '').trim()
+            const text = block.innerText.replace('copy', '').replace('copied!', '').trim()
             navigator.clipboard.writeText(text).then(() => {
                 btn.textContent = 'copied!'
                 setTimeout(() => btn.textContent = 'copy', 2000)
