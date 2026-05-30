@@ -41,7 +41,7 @@
 <section class="hero">
   <div class="hero-badge">
     <span class="hero-badge-dot"></span>
-    v1.1.0 now available
+    v2.0.0 now available
   </div>
   <h1 class="hero-title">
     Your games.<br>
@@ -220,7 +220,7 @@
         <a href="https://cdn.cirax.dev/clauncher/CLauncher.AppImage" class="download-card" id="dl-linux">
           <div class="download-card-icon"><i class="ti ti-brand-debian" aria-hidden="true"></i></div>
           <div class="download-card-info">
-            <div class="download-card-name">Linux AppImage (proton support coming soon)</div>
+            <div class="download-card-name">Linux AppImage</div>
             <div class="download-card-meta">CLauncher.AppImage &nbsp;·&nbsp; x64</div>
           </div>
           <i class="ti ti-arrow-right download-card-arrow" aria-hidden="true"></i>
@@ -242,14 +242,14 @@
     <div class="reveal reveal-delay-2">
       <div class="download-right">
         <div class="download-right-label">latest.yml</div>
-        <div class="code-line"><span class="code-line-num">1</span><span><span class="code-line-key">version</span>: <span class="code-line-val">1.1.0</span></span></div>
+        <div class="code-line"><span class="code-line-num">1</span><span><span class="code-line-key">version</span>: <span class="code-line-val">2.0.0</span></span></div>
         <div class="code-line"><span class="code-line-num">2</span><span><span class="code-line-key">files</span>:</span></div>
         <div class="code-line"><span class="code-line-num">3</span><span>&nbsp;&nbsp;- <span class="code-line-key">url</span>: <span class="code-line-str">CLauncher Setup.exe</span></span></div>
         <div class="code-line"><span class="code-line-num">4</span><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-line-key">sha512</span>: <span class="code-line-val">...</span></span></div>
         <div class="code-line"><span class="code-line-num">5</span><span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="code-line-key">size</span>: <span class="code-line-val">68291482</span></span></div>
         <div class="code-line"><span class="code-line-num">6</span><span><span class="code-line-key">path</span>: <span class="code-line-str">CLauncher Setup.exe</span></span></div>
         <div class="code-line"><span class="code-line-num">7</span><span><span class="code-line-key">sha512</span>: <span class="code-line-val">...</span></span></div>
-        <div class="code-line"><span class="code-line-num">8</span><span><span class="code-line-key">releaseDate</span>: <span class="code-line-str">'2026-05-28'</span></span></div>
+        <div class="code-line"><span class="code-line-num">8</span><span><span class="code-line-key">releaseDate</span>: <span class="code-line-str">'2026-05-30'</span></span></div>
         <br>
         <div class="code-line"><span class="code-line-num"></span><span class="code-line-comment"># hosted at cdn.cirax.dev/releases/</span></div>
       </div>
@@ -267,9 +267,49 @@
     <div class="changelog-list reveal">
       <div class="changelog-entry">
         <div class="changelog-meta">
+          <span class="changelog-version">v2.0.1</span>
+          <span class="changelog-date">2026-05-30</span>
+          <span class="changelog-tag ct-latest">latest</span>
+        </div>
+        <div class="changelog-body">
+          <ul class="changelog-items">
+            <li class="fixed">Fixed auto-updater</li>
+          </ul>
+        </div>
+      </div>
+      <div class="changelog-entry">
+        <div class="changelog-meta">
+          <span class="changelog-version">v2.0.0</span>
+          <span class="changelog-date">2026-05-30</span>
+        </div>
+        <div class="changelog-body">
+          <ul class="changelog-items">
+            <li class="added">Game logs</li>
+            <li class="added">
+              <div>
+                <span class="changelog-platform cp-linux">linux</span>
+                Proton manager with GE-Proton installation and version info
+              </div>
+            </li>
+            <li class="added">
+              <div>
+                <span class="changelog-platform cp-linux">linux</span>
+                Per-game environment variables with preset toggles
+              </div>
+            </li>
+            <li class="added">
+              <div>
+                <span class="changelog-platform cp-linux">linux</span>
+                Steam Linux Runtime detection and pressure-vessel status
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="changelog-entry">
+        <div class="changelog-meta">
           <span class="changelog-version">v1.1.0</span>
           <span class="changelog-date">2026-05-28</span>
-          <span class="changelog-tag ct-latest">latest</span>
         </div>
         <div class="changelog-body">
           <ul class="changelog-items">

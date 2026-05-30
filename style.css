@@ -804,6 +804,41 @@ footer {
     max-width: 800px;
 }
 
+.changelog-platform {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 9px;
+    font-family: var(--mono);
+    padding: 1px 6px;
+    border-radius: 3px;
+    border: 1px solid;
+    margin-right: 4px;
+    vertical-align: middle;
+    position: relative;
+    top: -1px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.cp-linux {
+    border-color: #7c2d12;
+    color: #f97316;
+    background: #0f0500;
+}
+
+.cp-windows {
+    border-color: #164e63;
+    color: #06b6d4;
+    background: #020a0f;
+}
+
+.cp-mac {
+    border-color: #4c1d95;
+    color: #a78bfa;
+    background: #08040f;
+}
+
 @media (max-width: 768px) {
     nav {
         padding: 0 20px;
