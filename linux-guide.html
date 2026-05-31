@@ -56,7 +56,8 @@
 
         <div class="guide-tabs">
             <button class="guide-tab active" onclick="switchTab('appimage', this)">AppImage</button>
-            <button class="guide-tab" onclick="switchTab('source', this)">build from source</button>
+            <button class="guide-tab" onclick="switchTab('curl', this)">curl</button>
+            <button class="guide-tab" onclick="switchTab('interactive', this)">interactive</button>
         </div>
 
         <!-- APPIMAGE -->
@@ -144,8 +145,29 @@
             </div>
         </div>
 
-        <!-- BUILD FROM SOURCE -->
-        <div class="guide-section" id="tab-source">
+        <!-- CURL -->
+        <div class="guide-section active" id="tab-curl">
+            <div class="guide-steps">
+        
+                <div class="guide-step">
+                    <div class="guide-step-num">1</div>
+                    <div class="guide-step-body">
+                        <div class="guide-step-title">Run the script</div>
+                        <div class="guide-step-desc">
+                            The custom script will automatically install CLauncher on your system. You can check the
+                            <code>interactive</code> tab to see what it does.
+                        </div>
+                        <div class="code-block">
+                            <button class="copy-btn" onclick="copyCode(this)">copy</button>
+                            <span class="cmd">curl -fsSL https://cdn.cirax.dev/clauncher/linux-install.sh | bash</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- INTERACTIVE -->
+        <div class="guide-section" id="tab-interactive">
             <div class="guide-steps">
 
                 <div class="guide-step">
@@ -277,8 +299,8 @@
             })
         }
 
-        if (window.location.hash === '#tab-source' || window.location.hash === '#source') {
-            switchTab('source', document.querySelectorAll('.guide-tab')[1])
+        if (window.location.hash === '#tab-curl' || window.location.hash === '#curl') {
+            switchTab('curl', document.querySelectorAll('.guide-tab')[1])
         }
     </script>
 </body>
