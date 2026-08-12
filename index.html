@@ -3,11 +3,31 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CLauncher</title>
+    <title>CLauncher - Free Open-Source Game Launcher for Windows, Mac and Linux</title>
     <meta
       name="description"
-      content="A minimal, modern game launcher with SteamDB version checking, custom launch configs, and category management."
+      content="A minimal, modern game launcher for Windows, Mac and Linux with SteamDB version checking, custom launch configs, and category management."
     />
+    <meta name="theme-color" content="#2563eb" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="CLauncher - Free Open-Source Game Launcher for Windows, Mac and Linux" />
+    <meta property="og:description"
+      content="A minimal, modern game launcher for Windows, Mac and Linux with SteamDB version checking, custom launch configs, and category management." />
+    <meta property="og:url" content="https://clauncher.cirax.dev/" />
+    <meta property="og:image" content="https://clauncher.cirax.dev/og-image.png" />
+    <meta property="og:image:width" content="913" />
+    <meta property="og:image:height" content="528" />
+    <meta property="og:image:alt" content="CLauncher app screenshot preview showing the game library" />
+    <meta property="og:site_name" content="CLauncher" />
+    <meta property="og:locale" content="en_US" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="CLauncher - Free Open-Source Game Launcher" />
+    <meta name="twitter:description"
+      content="Minimal game launcher for Windows, Mac and Linux. SteamDB version checking, custom launch configs, category management." />
+    <meta name="twitter:image" content="https://clauncher.cirax.dev/og-image.png" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -20,6 +40,7 @@
     />
     <link rel="stylesheet" type="text/css" href="./style.css" />
     <link rel="icon" type="image/x-icon" href="./icon.ico" />
+    <link rel="canonical" href="https://clauncher.cirax.dev/" />
   </head>
   <body>
     <!-- NAV -->
@@ -856,6 +877,29 @@
   `;
         })
         .catch(() => {}); // silently fail — static fallbacks remain
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "CLauncher",
+        "operatingSystem": "Windows, macOS, Linux",
+        "applicationCategory": "UtilitiesApplication",
+        "description": "A minimal, modern game launcher with SteamDB version checking, custom launch configs, and category management.",
+        "url": "https://clauncher.cirax.dev/",
+        "downloadUrl": "https://cdn.cirax.dev/clauncher/CLauncher.exe",
+        "softwareVersion": "2.4.0",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "cirax"
+        }
+      }
     </script>
   </body>
 </html>
